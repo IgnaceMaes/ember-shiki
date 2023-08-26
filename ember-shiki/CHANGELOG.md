@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.1.2
+
+### Patch Changes
+
+- [#5](https://github.com/IgnaceMaes/ember-shiki/pull/5) [`3756cb6`](https://github.com/IgnaceMaes/ember-shiki/commit/3756cb65db181dc9848b8ee39a3549d428ed47e2) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - fix: no default languages
+
 ## 0.1.1
 
 ### Patch Changes
