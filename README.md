@@ -89,7 +89,7 @@ import { CodeBlock } from 'ember-shiki';
 </template>
 ```
 
-See the deployed [docs app]() for an interactive demo and information on all options.
+See the deployed [docs app](https://ember-shiki.pages.dev/) for an interactive demo and information on all options.
 
 ## Contributing
 
