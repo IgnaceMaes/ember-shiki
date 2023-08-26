@@ -7,6 +7,7 @@
   "author": "",
   "scripts": {
     "build": "pnpm --filter ember-shiki build",
+    "build:docs-app": "pnpm --filter ember-shiki build && pnpm --filter docs-app build",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
     "prepare": "pnpm build",
