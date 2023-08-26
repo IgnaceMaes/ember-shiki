@@ -1,6 +1,6 @@
 {
   "name": "ember-shiki",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Embed code snippets with pretty syntax highlighting in Ember.js, powered by Shiki",
   "keywords": [
     "ember-addon",
