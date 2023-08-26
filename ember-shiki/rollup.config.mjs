@@ -23,7 +23,7 @@ export default {
       "modifiers/shiki-render.js",
       "services/shiki.js",
       "template-registry.js",
-      // "styles.css",
+      "index.js",
     ]),
 
     // These are the modules that should get reexported into the traditional
@@ -36,7 +36,6 @@ export default {
       "components/copy-button.js",
       "modifiers/shiki-render.js",
       "services/shiki.js",
-      // "styles.css",
     ]),
 
     // Follow the V2 Addon rules about dependencies. Your code can import from
