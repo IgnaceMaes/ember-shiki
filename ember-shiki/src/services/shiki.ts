@@ -106,7 +106,7 @@ export default class ShikiService extends Service {
     this.BUNDLED_THEMES = BUNDLED_THEMES;
     this.highlighter = await getHighlighter({
       themes: defaultThemes,
-      langs: defaultLanguages,
+      langs: defaultLanguages ?? [],
     });
     this.isInitialized = true;
   });
