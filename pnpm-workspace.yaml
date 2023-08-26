@@ -1,0 +1,4 @@
+packages:
+  - 'ember-shiki'
+  - 'test-app'
+  - 'docs-app'

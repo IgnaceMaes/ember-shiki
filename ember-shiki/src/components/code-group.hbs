@@ -1,0 +1,14 @@
+<div class="code-tab-header">
+  {{#each @names as |name|}}
+    <span
+      role="button"
+      class="code-tab-header__name {{if (this.isActiveTab name) 'active'}}"
+      {{on "click" (fn this.setActiveTab name)}}
+    >
+      {{name}}
+    </span>
+  {{/each}}
+</div>
+<div class="code-tab-container">
+  {{yield (component 'code-tab' activeTabName=this.activeTabName)}}
+</div>

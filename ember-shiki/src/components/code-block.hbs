@@ -1,0 +1,34 @@
+<div class="shiki-code-block" style={{this.lineNumberStartStyle}} ...attributes>
+  {{#if @name}}
+    <div class="shiki-code-block__name">
+      {{@name}}
+    </div>
+  {{/if}}
+  <div
+    class="shiki-code-block__code
+      {{if this.showLineNumbers 'line-numbers'}}"
+  >
+    <div
+      {{shiki-render
+        code=@code
+        language=@language
+        theme=@theme
+        onCodeHighlighted=this.onCodeHighlighted
+        lineHighlights=@lineHighlights
+      }}
+    >
+      {{#if this.renderedCode}}
+        {{this.renderedCode}}
+      {{else if (has-block "loading")}}
+        {{yield to="loading"}}
+      {{else}}
+        {{!-- This formatting seems ugly, and it is, but whitespace it shown literally in `pre` elements so it's important to get it right --}}
+        <pre class="shiki shiki--loading" tabindex="0"><code>{{#each this.codeLines as |line|}}<span class="line">{{line}}</span>
+{{/each}}</code></pre>
+      {{/if}}
+    </div>
+    {{#if this.showCopyButton}}
+      <CopyButton @text={{@code}} />
+    {{/if}}
+  </div>
+</div>

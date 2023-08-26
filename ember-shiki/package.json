@@ -1,0 +1,120 @@
+{
+  "name": "ember-shiki",
+  "version": "0.0.0",
+  "description": "Embed code snippets with pretty syntax highlighting in Ember.js, powered by Shiki",
+  "keywords": [
+    "ember-addon",
+    "shiki",
+    "syntax-highlighting"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IgnaceMaes/ember-shiki.git"
+  },
+  "license": "MIT",
+  "author": "Ignace Maes (https://ignacemaes.com/)",
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "concurrently \"npm:build:*\" --names \"build:\"",
+    "build:js": "rollup --config",
+    "build:types": "glint --declaration",
+    "lint": "concurrently \"npm:lint:*(!fix)\" --names \"lint:\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "concurrently \"npm:lint:css -- --fix\"",
+    "lint:fix": "concurrently \"npm:lint:*:fix\" --names \"fix:\"",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "ember-template-lint . --fix",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "lint:types": "glint",
+    "postpack": "rimraf declarations",
+    "prepack": "rollup --config",
+    "start": "concurrently \"npm:start:*\" --names \"start:\"",
+    "start:js": "rollup --config --watch --no-watch.clearScreen",
+    "start:types": "glint --declaration --watch",
+    "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
+  },
+  "dependencies": {
+    "@embroider/addon-shim": "^1.8.6",
+    "ember-concurrency": "^3.1.1",
+    "ember-functions-as-helper-polyfill": "^2.1.2",
+    "ember-modifier": "^4.1.0",
+    "shiki": "^0.14.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/plugin-proposal-decorators": "^7.22.10",
+    "@babel/plugin-transform-class-properties": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@babel/runtime": "^7.22.10",
+    "@embroider/addon-dev": "^4.1.0",
+    "@embroider/macros": "^1.13.1",
+    "@glimmer/component": "^1.0.4",
+    "@glimmer/tracking": "^1.0.4",
+    "@glint/core": "^1.1.0",
+    "@glint/environment-ember-loose": "^1.1.0",
+    "@glint/template": "^1.1.0",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@tsconfig/ember": "^2.0.0",
+    "babel-plugin-ember-template-compilation": "^2.2.0",
+    "concurrently": "^8.2.0",
+    "ember-template-lint": "^5.11.2",
+    "rimraf": "^5.0.1",
+    "rollup": "^3.28.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-prettier": "^4.0.2",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2"
+  },
+  "peerDependencies": {
+    "ember-source": ">= 4.0.0"
+  },
+  "engines": {
+    "node": "16.* || >= 18"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "ember-addon": {
+    "app-js": {
+      "./components/code-block.js": "./dist/_app_/components/code-block.js",
+      "./components/code-group.js": "./dist/_app_/components/code-group.js",
+      "./components/code-tab.js": "./dist/_app_/components/code-tab.js",
+      "./components/copy-button.js": "./dist/_app_/components/copy-button.js",
+      "./modifiers/shiki-render.js": "./dist/_app_/modifiers/shiki-render.js",
+      "./services/shiki.js": "./dist/_app_/services/shiki.js"
+    },
+    "main": "addon-main.cjs",
+    "type": "addon",
+    "version": 2
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs",
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "addon-main.cjs",
+    "declarations",
+    "dist"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  }
+}

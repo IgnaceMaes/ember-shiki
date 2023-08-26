@@ -1,0 +1,32 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.render-preview {
+  background-color: #666;
+  padding: 24px;
+  padding-top: 54px;
+  padding-bottom: 32px;
+  position: relative;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.render-preview::before {
+  content: "Output";
+  font-size: 0.75em;
+  color: white;
+  opacity: 0.5;
+  top: 16px;
+  left: 24px;
+  position: absolute;
+}
+
+p {
+  @apply my-4;
+}
+
+body {
+  @apply bg-neutral-900 text-gray-300;
+}

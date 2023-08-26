@@ -1,0 +1,32 @@
+{
+  "name": "workspace-root",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "",
+  "license": "MIT",
+  "author": "",
+  "scripts": {
+    "build": "pnpm --filter ember-shiki build",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "prepare": "pnpm build",
+    "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
+    "start:addon": "pnpm --filter ember-shiki start",
+    "start:test-app": "pnpm --filter test-app start",
+    "start:docs-app": "pnpm --filter docs-app start",
+    "test": "pnpm --filter '*' test",
+    "release": "changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@glint/core": "^1.1.0",
+    "concurrently": "^8.2.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/eslint": "^7.0.0",
+      "@glimmer/validator": "^0.84.3"
+    }
+  }
+}
