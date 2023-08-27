@@ -39,9 +39,9 @@ export default class ShikiService extends Service {
       });
 
       if (bundles.length > 0) {
-        for (let bundle of bundles) {
+        for (const bundle of bundles) {
           // Recursively load all embedded languages first
-          for (let embeddedLang of (bundle?.embeddedLangs ?? [])) {
+          for (const embeddedLang of bundle?.embeddedLangs ?? []) {
             await this.loadLanguageAndEmbedded(embeddedLang);
           }
           // Load actual language
