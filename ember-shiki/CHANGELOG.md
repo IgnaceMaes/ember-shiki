@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.1.3
+
+### Patch Changes
+
+- [#7](https://github.com/IgnaceMaes/ember-shiki/pull/7) [`7631fca`](https://github.com/IgnaceMaes/ember-shiki/commit/7631fca1132188aa59ba69821cc8f08c4c661c9a) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - fix: load embedded languages
+
 ## 0.1.2
 
 ### Patch Changes
