@@ -1,5 +1,13 @@
 # ember-shiki
 
+## 0.1.4
+
+### Patch Changes
+
+- [`04e0e00`](https://github.com/IgnaceMaes/ember-shiki/commit/04e0e00f59fe40bfa5706a5686ff69748ce2a773) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - chore: set homepage url in package.json
+
+- [`de574cb`](https://github.com/IgnaceMaes/ember-shiki/commit/de574cb6fc18b69ee73da86823f591971f5a77f3) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - fix: lint
+
 ## 0.1.3
 
 ### Patch Changes
