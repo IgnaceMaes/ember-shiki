@@ -23,6 +23,10 @@ export default class ShikiService extends Service {
   BUNDLED_THEMES?: typeof BUNDLED_THEMES;
 
   loadLanguageTask = task({ enqueue: true }, async (language: Lang) => {
+    await this.loadLanguageAndEmbedded(language);
+  });
+
+  loadLanguageAndEmbedded = async (language: Lang) => {
     if (!this.highlighter || !this.BUNDLED_LANGUAGES) {
       return;
     }
@@ -33,13 +37,19 @@ export default class ShikiService extends Service {
         // Languages are specified by their id, they can also have aliases (i. e. "js" and "javascript")
         return bundle.id === language || bundle.aliases?.includes(language);
       });
+
       if (bundles.length > 0) {
-        await this.highlighter.loadLanguage(language);
-      } else {
-        // Do some error handling or default to another language or...
+        for (let bundle of bundles) {
+          // Recursively load all embedded languages first
+          for (let embeddedLang of (bundle?.embeddedLangs ?? [])) {
+            await this.loadLanguageAndEmbedded(embeddedLang);
+          }
+          // Load actual language
+          await this.highlighter.loadLanguage(bundle);
+        }
       }
     }
-  });
+  };
 
   loadThemeTask = task({ enqueue: true }, async (theme: Theme) => {
     if (!this.highlighter || !this.BUNDLED_THEMES) {
