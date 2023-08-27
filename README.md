@@ -17,46 +17,19 @@ _Embed code snippets with pretty syntax highlighting in Ember.js, powered by Shi
 
 ember-shiki is an addon which makes using [Shiki](https://github.com/shikijs/shiki) in Ember a breeze. It offers a drop-in component to get syntax highlighting for code. This is perfect for documentation sites, blogs, or wherever you need pretty formatted code.
 
-<li>
-  ✅ TypeScript and Glint ready
-</li>
-<li>
-  🧵 V2 addon format
-</li>
-<li>
-  🚀 FastBoot support
-</li>
-<li>
-  📦 Lazy loaded packages &mdash; minimal impact on initial load
-</li>
-<li>
-  #️⃣ Syntax highlighting for 170+ languages &mdash; including `.gjs` and
-  `.gts`
-</li>
-<li>
-  🎨 Theme support: 29 included themes &mdash; load any external
-</li>
-<li>
-  🔢 Line number support
-</li>
-<li>
-  🔤 Custom fonts &mdash; including font ligature support
-</li>
-<li>
-  📋 Copy code to clipboard
-</li>
-<li>
-  🏷️ Code block naming
-</li>
-<li>
-  🗂️ Group code blocks with tabs
-</li>
-<li>
-  ✨ Line highlighting
-</li>
-<li>
-  🖌️ Stylable via CSS variables
-</li>
+- ✅ TypeScript and Glint ready
+- 🧵 V2 addon format
+- 🚀 FastBoot support
+- 📦 Lazy loaded packages &mdash; minimal impact on initial load
+- #️⃣ Syntax highlighting for 170+ languages &mdash; including `.gjs` and `.gts`
+- 🎨 Theme support: 29 included themes &mdash; load any external
+- 🔢 Line number support
+- 🔤 Custom fonts &mdash; including font ligature support
+- 📋 Copy code to clipboard
+- 🏷️ Code block naming
+- 🗂️ Group code blocks with tabs
+- ✨ Line highlighting
+- 🖌️ Stylable via CSS variables
 
 ## Compatibility
 
