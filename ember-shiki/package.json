@@ -11,6 +11,7 @@
     "type": "git",
     "url": "https://github.com/IgnaceMaes/ember-shiki.git"
   },
+  "homepage": "https://ember-shiki.pages.dev/",
   "license": "MIT",
   "author": "Ignace Maes (https://ignacemaes.com/)",
   "directories": {
