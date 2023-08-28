@@ -1,5 +1,6 @@
 <button
   class="copy-button {{if this.showCopied 'copy-button--copied'}}"
   type="button"
+  aria-label="copy"
   {{on "click" this.copyToClipboard}}
 />
