@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.1.5
+
+### Patch Changes
+
+- [#11](https://github.com/IgnaceMaes/ember-shiki/pull/11) [`beca319`](https://github.com/IgnaceMaes/ember-shiki/commit/beca319c1afd40d5b46ee24cdb553f87ca58af7a) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - feat: setup a11y testing and fix issues
+
 ## 0.1.4
 
 ### Patch Changes
