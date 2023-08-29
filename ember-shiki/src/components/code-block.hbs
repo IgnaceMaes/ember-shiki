@@ -10,7 +10,7 @@
   >
     <div
       {{shiki-render
-        code=@code
+        code=this.code
         language=@language
         theme=@theme
         onCodeHighlighted=this.onCodeHighlighted
@@ -28,7 +28,7 @@
       {{/if}}
     </div>
     {{#if this.showCopyButton}}
-      <CopyButton @text={{@code}} />
+      <CopyButton @text={{this.code}} />
     {{/if}}
   </div>
 </div>

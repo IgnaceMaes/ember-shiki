@@ -25,6 +25,7 @@ export interface CodeBlockSignature {
     name?: string;
     showCopyButton?: boolean;
     showLineNumbers?: boolean;
+    isUriEncoded?: boolean;
     lineNumberStart?: number;
     lineHighlights?: LineHighlight[];
     onCodeHighlighted?: (
@@ -57,17 +58,24 @@ export default class CodeBlock extends Component<CodeBlockSignature> {
 
     if (this.fastboot && this.fastboot.isFastBoot) {
       const shikiRenderCompleted = new Promise((resolve) => {
-        const { code, language, theme, lineHighlights } = this.args;
+        const { language, theme, lineHighlights } = this.args;
         this.shiki.render
-          .perform(code, language, theme, lineHighlights)
+          .perform(this.code, language, theme, lineHighlights)
           .then((rendered) => {
-            this.onCodeHighlighted(rendered, code, language, theme);
+            this.onCodeHighlighted(rendered, this.code, language, theme);
             resolve(true);
           });
       });
 
       this.fastboot.deferRendering(shikiRenderCompleted);
     }
+  }
+
+  get code() {
+    if (this.args.isUriEncoded) {
+      return decodeURI(this.args.code);
+    }
+    return this.args.code;
   }
 
   get showLineNumbers() {
@@ -101,7 +109,7 @@ export default class CodeBlock extends Component<CodeBlockSignature> {
   }
 
   get codeLines() {
-    return this.args.code.split('\n');
+    return this.code.split('\n');
   }
 
   get lineNumberStartStyle() {

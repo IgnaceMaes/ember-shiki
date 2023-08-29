@@ -16,4 +16,12 @@ module('Integration | Component | code-block', function (hooks) {
 
     assert.dom().hasText('const x = 1;');
   });
+
+  test('it can handle URI encoded code', async function (assert) {
+    await render(
+      hbs`<CodeBlock @code="console.log(%22hello%20world%22);" @language="js" @isUriEncoded={{true}} />`
+    );
+
+    assert.dom().hasText('console.log("hello world");');
+  });
 });
