@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.2.0
+
+### Minor Changes
+
+- [#13](https://github.com/IgnaceMaes/ember-shiki/pull/13) [`d3d8374`](https://github.com/IgnaceMaes/ember-shiki/commit/d3d83746babc40bddf85052d51c4ffb469adadde) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - feat: add isUriEncoded argument
+
 ## 0.1.5
 
 ### Patch Changes
