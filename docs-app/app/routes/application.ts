@@ -7,6 +7,7 @@ export default class ApplicationRoute extends Route {
 
   beforeModel() {
     // this.loadCustomGrammar();
+    this.loadCustomTheme();
   }
 
   async loadCustomGrammar() {
@@ -26,5 +27,15 @@ export default class ApplicationRoute extends Route {
     await this.shiki.loadLanguageAndEmbedded('css');
     // Finally, register the custom language to the Shiki highlighter
     await this.shiki.highlighter?.loadLanguage(glimmerHandlebars);
+  }
+
+  async loadCustomTheme() {
+    await this.shiki.initialize.perform();
+    const blackTheme = await fetch(
+      'https://raw.githubusercontent.com/Jaakkko/vscode-black-theme/master/themes/black.json',
+    );
+    const blackThemeJson = await blackTheme.json();
+    blackThemeJson.name = 'Black';
+    await this.shiki.highlighter?.loadTheme(blackThemeJson);
   }
 }
