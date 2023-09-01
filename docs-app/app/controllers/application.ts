@@ -189,6 +189,28 @@ export default class ApplicationRoute extends Route {
   }
 }`;
 
+  loadCustomTheme = `import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class ApplicationRoute extends Route {
+  @service shiki;
+
+  async beforeModel() {
+    await this.loadCustomTheme();
+  }
+
+  async loadCustomTheme() {
+    await this.shiki.initialize.perform();
+    const blackTheme = await fetch(
+      'https://raw.githubusercontent.com/Jaakkko/vscode-black-theme/master/themes/black.json',
+    );
+    const blackThemeJson = await blackTheme.json();
+    // Make sure the theme config has a name as this is what should be passed to the CodeBlock component
+    blackThemeJson.name = 'Black';
+    await this.shiki.highlighter?.loadTheme(blackThemeJson);
+  }
+}`;
+
   fastbootConfig = `module.exports = function () {
   return {
     buildSandboxGlobals(defaultGlobals) {

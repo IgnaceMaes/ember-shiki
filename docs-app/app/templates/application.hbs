@@ -345,15 +345,16 @@ function foo(x, y) {
       <SectionTitle @text="Advanced" />
       <SectionSubtitle @text="Custom grammar" />
 
-      <p>Shiki supports loading custom language grammar definitions. This can be
-        useful if a new language hasn't landed in the base package yet, or if
-        you want to customize the output.</p>
+      <p>Shiki supports loading custom language grammar definitions in the
+        TextMate format. This can be useful if a new language hasn't landed in
+        the base package yet, or if you want to use a custom definition for an
+        existing language.</p>
 
       <p>A great use case for this is Ember's template syntax. Ember uses
         Glimmer to render component with templates defined in a
         <InlineCode>.hbs</InlineCode>
-        file. But Glimmer grammar is more extensive than handlebars. If you want
-        to opt into full Glimmer syntax parsing, you can load custom Glimmer
+        file. Glimmer grammar, however, is more extensive than handlebars. If
+        you want to opt into Glimmer syntax parsing, you can load custom Glimmer
         grammar for the
         <InlineCode>handlebars</InlineCode>
         language definition. Here's an example of how you could do it:</p>
@@ -362,10 +363,24 @@ function foo(x, y) {
         @name="app/routes/application.js"
         @code={{this.loadCustomGrammar}}
         @language="js"
-        @theme="Black"
       />
 
       <SectionSubtitle @text="Custom theme" />
+      <p>Shiki ships with 29 themes available by default, but any VS Code theme
+        can be loaded dynamically. Simply register the theme config JSON and
+        pass the theme name to the
+        <InlineCode>CodeBlock</InlineCode>
+        component.</p>
+
+      <p>The following example shows a custom theme <InlineCode>Black</InlineCode>:</p>
+
+      <CodeBlock
+        @name="app/routes/application.js"
+        @code={{this.loadCustomTheme}}
+        @language="js"
+        @theme="Black"
+        style="--ember-shiki-background-color: #000"
+      />
 
       <SectionSubtitle @text="Fastboot" />
       <p>The
@@ -373,12 +388,12 @@ function foo(x, y) {
         component automatically detects Fastboot if it's used in the app and
         makes sure the rendering awaits until the highlighting is completed.</p>
 
-      <p>Shiki does make use of
+      <p>Shiki makes use of
         <InlineCode>fetch</InlineCode>
-        which is not available in the environment by default. To make it
-        available, set the globals in your fastboot config. Note that fetch is
-        only built into Node.js starting from v18. If you want to support older
-        versions you can import and install
+        which is not available in the runtime environment of Fastboot by
+        default. To make it available, set the globals in your fastboot config.
+        Note that fetch is only built into Node.js starting from v18. If you
+        want to support older versions you can install and import
         <InlineCode>node-fetch</InlineCode>.</p>
 
       <CodeBlock
