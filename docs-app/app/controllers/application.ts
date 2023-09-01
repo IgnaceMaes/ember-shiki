@@ -164,8 +164,8 @@ import { service } from '@ember/service';
 export default class ApplicationRoute extends Route {
   @service shiki;
 
-  beforeModel() {
-    this.loadCustomGrammar();
+  async beforeModel() {
+    await this.loadCustomGrammar();
   }
 
   async loadCustomGrammar() {
