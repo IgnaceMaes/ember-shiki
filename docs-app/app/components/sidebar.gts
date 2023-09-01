@@ -67,6 +67,8 @@ const Sidebar: TOC<{}> = <template>
 
         <SidebarTitle @text='Advanced' />
         <SidebarItem @text='Custom grammar' />
+        <SidebarItem @text='Custom theme' />
+        <SidebarItem @text='Fastboot' />
       </ul>
 
       <p class="text-xs text-gray-500 mt-4">Built by
