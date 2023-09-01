@@ -6,7 +6,7 @@ export default class ApplicationRoute extends Route {
   @service declare shiki: ShikiService;
 
   async beforeModel() {
-    await Promise.all([this.loadCustomGrammar(), this.loadCustomTheme()]);
+    await this.loadCustomTheme();
   }
 
   async loadCustomGrammar() {
