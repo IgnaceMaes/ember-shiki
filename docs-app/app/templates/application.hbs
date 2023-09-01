@@ -340,6 +340,26 @@ function foo(x, y) {
       </div>
       <CodeBlock @code={{this.fontComicSans}} @language="hbs" />
 
+      <hr class="my-16 h-px border-0 bg-gray-700" />
+
+      <SectionTitle @text="Advanced" />
+      <SectionSubtitle @text="Custom grammar" />
+
+      <p>Shiki supports loading custom language grammar definitions. This can be
+        useful if a new language hasn't landed in the base package yet, or if
+        you want to customize the output.</p>
+
+      <p>A great use case for this is Ember's template syntax. Ember uses
+        Glimmer to render component with templates defined in a
+        <InlineCode>.hbs</InlineCode>
+        file. But Glimmer grammar is more extensive than handlebars. If you want
+        to opt into full Glimmer syntax parsing, you can load custom Glimmer
+        grammar for the
+        <InlineCode>handlebars</InlineCode>
+        language definition. Here's how you could do it:</p>
+
+      <CodeBlock @code={{this.loadCustomGrammar}} @language="js" />
+
       {{outlet}}
     </div>
   </article>

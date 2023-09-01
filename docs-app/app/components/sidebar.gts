@@ -52,6 +52,7 @@ const Sidebar: TOC<{}> = <template>
         <SidebarItem @text='Glint types' />
         <SidebarItem @text='Configure (optional)' />
         <Separator />
+
         <SidebarTitle @text='Options' />
         <SidebarItem @text='Language' />
         <SidebarItem @text='Theme' />
@@ -62,6 +63,10 @@ const Sidebar: TOC<{}> = <template>
         <SidebarItem @text='Line highlighting' />
         <SidebarItem @text='Loading state' />
         <SidebarItem @text='Custom fonts' />
+        <Separator />
+
+        <SidebarTitle @text='Advanced' />
+        <SidebarItem @text='Custom grammar' />
       </ul>
 
       <p class="text-xs text-gray-500 mt-4">Built by

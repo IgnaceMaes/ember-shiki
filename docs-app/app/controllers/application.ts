@@ -158,6 +158,8 @@ function foo(x, y) {
   </Tab>
 </CodeGroup>`;
 
+  loadCustomGrammar = ``;
+
   changeTheme = (event: Event) => {
     this.theme = (event.target as HTMLSelectElement).value;
   };
