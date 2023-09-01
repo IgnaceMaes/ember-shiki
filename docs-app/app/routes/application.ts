@@ -6,15 +6,16 @@ export default class ApplicationRoute extends Route {
   @service declare shiki: ShikiService;
 
   async beforeModel() {
-    await this.loadCustomGrammar();
-    await this.loadCustomTheme();
+    await Promise.all([this.loadCustomGrammar(), this.loadCustomTheme()]);
   }
 
   async loadCustomGrammar() {
     // Shiki has to be initialized before the highlighter is available
     await this.shiki.initialize.perform();
     // Get custom grammar
-    const glimmerHandlebarsGrammar = await fetch('https://raw.githubusercontent.com/IgnaceMaes/glimmer-textmate-grammar/main/handlebars.tmLanguage.json');
+    const glimmerHandlebarsGrammar = await fetch(
+      'https://raw.githubusercontent.com/IgnaceMaes/glimmer-textmate-grammar/main/handlebars.tmLanguage.json',
+    );
     const glimmerHandlebars = {
       id: 'handlebars',
       path: '',
@@ -32,10 +33,10 @@ export default class ApplicationRoute extends Route {
   async loadCustomTheme() {
     await this.shiki.initialize.perform();
     const blackTheme = await fetch(
-      'https://raw.githubusercontent.com/Jaakkko/vscode-black-theme/master/themes/black.json',
+      'https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/main/themes/Night%20Owl-color-theme.json',
     );
     const blackThemeJson = await blackTheme.json();
-    blackThemeJson.name = 'Black';
+    blackThemeJson.name = 'Night Owl';
     await this.shiki.highlighter?.loadTheme(blackThemeJson);
   }
 }
