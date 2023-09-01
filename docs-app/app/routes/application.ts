@@ -5,9 +5,9 @@ import { ShikiService } from 'ember-shiki';
 export default class ApplicationRoute extends Route {
   @service declare shiki: ShikiService;
 
-  beforeModel() {
-    // this.loadCustomGrammar();
-    this.loadCustomTheme();
+  async beforeModel() {
+    await this.loadCustomGrammar();
+    await this.loadCustomTheme();
   }
 
   async loadCustomGrammar() {
