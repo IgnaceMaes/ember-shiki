@@ -200,14 +200,16 @@ export default class ApplicationRoute extends Route {
   }
 
   async loadCustomTheme() {
+    // Shiki has to be initialized before the highlighter is available
     await this.shiki.initialize.perform();
-    const blackTheme = await fetch(
-      'https://raw.githubusercontent.com/Jaakkko/vscode-black-theme/master/themes/black.json',
+    // Fetch custom theme
+    const nightOwlTheme = await fetch(
+      'https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/main/themes/Night%20Owl-color-theme.json',
     );
-    const blackThemeJson = await blackTheme.json();
-    // Make sure the theme config has a name as this is what should be passed to the CodeBlock component
-    blackThemeJson.name = 'Black';
-    await this.shiki.highlighter?.loadTheme(blackThemeJson);
+    const nightOwlThemeJson = await nightOwlTheme.json();
+    // Make sure the name is set, as this is the value to be passed to the CodeBlock theme argument
+    nightOwlThemeJson.name = 'Night Owl';
+    await this.shiki.highlighter?.loadTheme(nightOwlThemeJson);
   }
 }`;
 

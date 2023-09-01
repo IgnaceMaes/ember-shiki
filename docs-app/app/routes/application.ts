@@ -32,11 +32,11 @@ export default class ApplicationRoute extends Route {
 
   async loadCustomTheme() {
     await this.shiki.initialize.perform();
-    const blackTheme = await fetch(
+    const nightOwlTheme = await fetch(
       'https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/main/themes/Night%20Owl-color-theme.json',
     );
-    const blackThemeJson = await blackTheme.json();
-    blackThemeJson.name = 'Night Owl';
-    await this.shiki.highlighter?.loadTheme(blackThemeJson);
+    const nightOwlThemeJson = await nightOwlTheme.json();
+    nightOwlThemeJson.name = 'Night Owl';
+    await this.shiki.highlighter?.loadTheme(nightOwlThemeJson);
   }
 }
