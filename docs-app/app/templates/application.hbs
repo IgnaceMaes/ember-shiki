@@ -356,9 +356,13 @@ function foo(x, y) {
         to opt into full Glimmer syntax parsing, you can load custom Glimmer
         grammar for the
         <InlineCode>handlebars</InlineCode>
-        language definition. Here's how you could do it:</p>
+        language definition. Here's an example of how you could do it:</p>
 
-      <CodeBlock @code={{this.loadCustomGrammar}} @language="js" />
+      <CodeBlock
+        @name="app/routes/application.js"
+        @code={{this.loadCustomGrammar}}
+        @language="js"
+      />
 
       {{outlet}}
     </div>

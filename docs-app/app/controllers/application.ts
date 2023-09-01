@@ -158,7 +158,36 @@ function foo(x, y) {
   </Tab>
 </CodeGroup>`;
 
-  loadCustomGrammar = ``;
+  loadCustomGrammar = `import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class ApplicationRoute extends Route {
+  @service shiki;
+
+  beforeModel() {
+    this.loadCustomGrammar();
+  }
+
+  async loadCustomGrammar() {
+    // Shiki has to be initialized before the highlighter is available
+    await this.shiki.initialize.perform();
+    // Get custom grammar
+    const grammarTextmateDefinition = 'https://raw.githubusercontent.com/IgnaceMaes/glimmer-textmate-grammar/main/handlebars.tmLanguage.json';
+    const glimmerHandlebarsGrammar = await fetch(grammarTextmateDefinition);
+    const glimmerHandlebars = {
+      id: 'handlebars',
+      path: '',
+      scopeName: 'text.html.handlebars',
+      grammar: await glimmerHandlebarsGrammar.json(),
+      aliases: ['hbs'],
+    };
+    // Load embedded languages first
+    await this.shiki.loadLanguageAndEmbedded('js');
+    await this.shiki.loadLanguageAndEmbedded('css');
+    // Finally, register the custom language to the Shiki highlighter
+    await this.shiki.highlighter?.loadLanguage(glimmerHandlebars);
+  }
+}`;
 
   changeTheme = (event: Event) => {
     this.theme = (event.target as HTMLSelectElement).value;
