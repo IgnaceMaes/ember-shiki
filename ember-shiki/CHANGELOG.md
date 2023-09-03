@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.3.0
+
+### Minor Changes
+
+- [#19](https://github.com/IgnaceMaes/ember-shiki/pull/19) [`83b60e3`](https://github.com/IgnaceMaes/ember-shiki/commit/83b60e3715a2c0a3a03efea214b3505f25edbf7d) Thanks [@IgnaceMaes](https://github.com/IgnaceMaes)! - Add CSS variables for padding
+
 ## 0.2.0
 
 ### Minor Changes
