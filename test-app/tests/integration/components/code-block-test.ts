@@ -25,7 +25,10 @@ module('Integration | Component | code-block', function (hooks) {
 
   test('it applies CSS padding variables correctly', async function (assert) {
     await render(
-      hbs`<CodeBlock @code="Hello world" style="--ember-shiki-padding-x: 12px; --ember-shiki-padding-y: 8px;" />`
+      hbs`
+        {{! template-lint-disable no-inline-styles }}
+        <CodeBlock @code="Hello world" style="--ember-shiki-padding-x: 12px; --ember-shiki-padding-y: 8px;" />
+      `
     );
 
     assert.strictEqual(getCssValue('.shiki code', 'padding-top'), '8px');
