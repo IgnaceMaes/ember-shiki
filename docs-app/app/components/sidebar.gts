@@ -62,7 +62,7 @@ const Sidebar: TOC<{}> = <template>
         <SidebarItem @text='Line numbers' />
         <SidebarItem @text='Line highlighting' />
         <SidebarItem @text='Loading state' />
-        <SidebarItem @text='Custom fonts' />
+        <SidebarItem @text='Styling' />
         <Separator />
 
         <SidebarTitle @text='Advanced' />

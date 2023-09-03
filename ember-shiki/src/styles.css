@@ -1,4 +1,6 @@
 :root {
+  --ember-shiki-padding-x: 24px;
+  --ember-shiki-padding-y: 20px;
   --ember-shiki-border-radius: 6px;
   --ember-shiki-background-color: #161b22;
   --ember-shiki-copy-background-color: #161b22;
@@ -23,18 +25,18 @@
 .code-tab-header {
   background: var(--ember-shiki-background-color);
   color: #fffd;
-  padding: 20px 24px;
+  padding: var(--ember-shiki-padding-y) var(--ember-shiki-padding-x);
   border-top-left-radius: var(--ember-shiki-border-radius);
   border-top-right-radius: var(--ember-shiki-border-radius);
   border-bottom: 1px solid var(--ember-shiki-line-number-color);
 }
 
 .code-tab-header {
-  padding: 0 20px;
+  padding: 0 var(--ember-shiki-padding-x);
 }
 
 .code-tab-header__name {
-  padding: 20px 0;
+  padding: var(--ember-shiki-padding-y) 0;
   margin: 0 8px;
   cursor: pointer;
   display: inline-block;
@@ -90,8 +92,9 @@
   overflow-x: auto;
   display: block;
   font-family: var(--ember-shiki-font) !important;
+  font-size: var(--ember-shiki-font-size);
   line-height: var(--ember-shiki-line-height);
-  padding: 20px 0;
+  padding: var(--ember-shiki-padding-y) 0;
 }
 
 .shiki code .line > span:first-of-type {
@@ -99,7 +102,7 @@
 }
 
 .shiki code .line {
-  padding: 0 24px;
+  padding: 0 var(--ember-shiki-padding-x);
   box-sizing: border-box;
   display: inline-block;
   min-width: 100%;

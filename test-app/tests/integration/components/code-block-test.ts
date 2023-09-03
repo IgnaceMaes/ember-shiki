@@ -2,14 +2,12 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'test-app/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { getCssValue } from 'test-app/tests/helpers/css-helpers';
 
 module('Integration | Component | code-block', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
     await render(
       hbs`<CodeBlock @code="const x = 1;" @language="js" @theme="github-dark" />`
     );
@@ -23,5 +21,25 @@ module('Integration | Component | code-block', function (hooks) {
     );
 
     assert.dom().hasText('console.log("hello world");');
+  });
+
+  test('it applies CSS padding variables correctly', async function (assert) {
+    await render(
+      hbs`
+        {{! template-lint-disable no-inline-styles }}
+        <CodeBlock @code="Hello world" style="--ember-shiki-padding-x: 12px; --ember-shiki-padding-y: 8px;" />
+      `
+    );
+
+    assert.strictEqual(getCssValue('.shiki code', 'padding-top'), '8px');
+    assert.strictEqual(getCssValue('.shiki code', 'padding-bottom'), '8px');
+    assert.strictEqual(
+      getCssValue('.shiki code .line', 'padding-left'),
+      '12px'
+    );
+    assert.strictEqual(
+      getCssValue('.shiki code .line', 'padding-right'),
+      '12px'
+    );
   });
 });

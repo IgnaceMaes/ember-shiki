@@ -317,9 +317,10 @@ function foo(x, y) {
 
       <CodeBlock @code={{this.loadingState}} @language="hbs" />
 
-      <SectionSubtitle @text="Custom fonts" />
-      <p>Load any external font and set it using the CSS variable. Even fonts
-        with ligature support work out of the box.</p>
+      <SectionSubtitle @text="Styling" />
+      <p>The components in this addon can be styled by overriding CSS variables.
+        For example, any external font can be loaded and used. Even fonts with
+        ligature support work out of the box.</p>
 
       <div class="render-preview">
         <CodeBlock
@@ -330,15 +331,8 @@ function foo(x, y) {
       </div>
       <CodeBlock @code={{this.fontLigaturesCode}} @language="hbs" />
 
-      <p>Or even Comic Sans, if you would really like to</p>
-      <div class="render-preview">
-        <CodeBlock
-          @code="const foo = (bar) => { bar === 1 };"
-          @language="js"
-          style="--ember-shiki-font: 'Comic Sans MS', 'Comic Sans'"
-        />
-      </div>
-      <CodeBlock @code={{this.fontComicSans}} @language="hbs" />
+      <p>Here is a list of CSS variables which are currently defined:</p>
+      <CodeBlock @code={{this.cssVariables}} @language="css" />
 
       <hr class="my-16 h-px border-0 bg-gray-700" />
 
@@ -364,7 +358,9 @@ function foo(x, y) {
         @code={{this.loadCustomGrammar}}
         @language="js"
       />
-      <p>Note: this is just an example way of how it's made possible, but not the recommended approach per se. In the future a more ergonomic, officially recommended way might be added.</p>
+      <p>Note: this is just an example way of how it's made possible, but not
+        the recommended approach per se. In the future a more ergonomic,
+        officially recommended way might be added.</p>
 
       <SectionSubtitle @text="Custom theme" />
       <p>Shiki ships with 29 themes available by default, but any VS Code theme
@@ -373,7 +369,8 @@ function foo(x, y) {
         <InlineCode>CodeBlock</InlineCode>
         component.</p>
 
-      <p>The following example shows a custom theme <InlineCode>Night Owl</InlineCode>:</p>
+      <p>The following example shows a custom theme
+        <InlineCode>Night Owl</InlineCode>:</p>
 
       <CodeBlock
         @name="app/routes/application.js"
@@ -382,7 +379,9 @@ function foo(x, y) {
         @theme="Night Owl"
         style="--ember-shiki-background-color: #011627"
       />
-      <p>Note: this is just an example way of how it's made possible, but not the recommended approach per se. In the future a more ergonomic, officially recommended way might be added.</p>
+      <p>Note: this is just an example way of how it's made possible, but not
+        the recommended approach per se. In the future a more ergonomic,
+        officially recommended way might be added.</p>
 
       <SectionSubtitle @text="Fastboot" />
       <p>The
