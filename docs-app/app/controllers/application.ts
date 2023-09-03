@@ -158,6 +158,85 @@ function foo(x, y) {
   </Tab>
 </CodeGroup>`;
 
+  loadCustomGrammar = `import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class ApplicationRoute extends Route {
+  @service shiki;
+
+  async beforeModel() {
+    await this.loadCustomGrammar();
+  }
+
+  async loadCustomGrammar() {
+    // Shiki has to be initialized before the highlighter is available
+    await this.shiki.initialize.perform();
+    // Get custom grammar
+    const grammarTextmateDefinition = 'https://raw.githubusercontent.com/IgnaceMaes/glimmer-textmate-grammar/main/handlebars.tmLanguage.json';
+    const glimmerHandlebarsGrammar = await fetch(grammarTextmateDefinition);
+    const glimmerHandlebars = {
+      id: 'handlebars',
+      path: '',
+      scopeName: 'text.html.handlebars',
+      grammar: await glimmerHandlebarsGrammar.json(),
+      aliases: ['hbs'],
+    };
+    // Load embedded languages first
+    await this.shiki.loadLanguageAndEmbedded('js');
+    await this.shiki.loadLanguageAndEmbedded('css');
+    // Finally, register the custom language to the Shiki highlighter
+    await this.shiki.highlighter?.loadLanguage(glimmerHandlebars);
+  }
+}`;
+
+  loadCustomTheme = `import Route from '@ember/routing/route';
+import { service } from '@ember/service';
+
+export default class ApplicationRoute extends Route {
+  @service shiki;
+
+  async beforeModel() {
+    await this.loadCustomTheme();
+  }
+
+  async loadCustomTheme() {
+    // Shiki has to be initialized before the highlighter is available
+    await this.shiki.initialize.perform();
+    // Fetch custom theme
+    const nightOwlTheme = await fetch(
+      'https://raw.githubusercontent.com/sdras/night-owl-vscode-theme/main/themes/Night%20Owl-color-theme.json',
+    );
+    const nightOwlThemeJson = await nightOwlTheme.json();
+    // Make sure the name is set, as this is the value to be passed to the CodeBlock theme argument
+    nightOwlThemeJson.name = 'Night Owl';
+    await this.shiki.highlighter?.loadTheme(nightOwlThemeJson);
+  }
+}`;
+
+  fastbootConfig = `module.exports = function () {
+  return {
+    buildSandboxGlobals(defaultGlobals) {
+      return Object.assign({}, defaultGlobals, {
+        fetch: fetch,
+        AbortController,
+        ReadableStream:
+          typeof ReadableStream !== 'undefined'
+            ? ReadableStream
+            : require('node:stream/web').ReadableStream,
+        WritableStream:
+          typeof WritableStream !== 'undefined'
+            ? WritableStream
+            : require('node:stream/web').WritableStream,
+        TransformStream:
+          typeof TransformStream !== 'undefined'
+            ? TransformStream
+            : require('node:stream/web').TransformStream,
+        Headers: typeof Headers !== 'undefined' ? Headers : undefined,
+      });
+    },
+  };
+};`;
+
   changeTheme = (event: Event) => {
     this.theme = (event.target as HTMLSelectElement).value;
   };
