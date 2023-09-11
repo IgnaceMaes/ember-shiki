@@ -14,7 +14,7 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { ShikiService } from 'ember-shiki';
 
-class Application extends Component {
+class Application extends Component<{ Args: { model: null } }> {
   @service declare shiki: ShikiService;
 
   @tracked theme = 'github-dark';
@@ -685,6 +685,5 @@ export default class ApplicationRoute extends Route {
     </main>
   </template>
 }
-
 
 export default RouteTemplate(Application);
