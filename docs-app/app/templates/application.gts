@@ -312,8 +312,8 @@ export default class ApplicationRoute extends Route {
               📦 Lazy loaded packages &mdash; minimal impact on initial load
             </li>
             <li>
-              #️⃣ Syntax highlighting for 170+ languages &mdash; including `.gjs` and
-              `.gts`
+              #️⃣ Syntax highlighting for 170+ languages &mdash; including &#96;.gjs&#96; and
+              &#96;.gts&#96;
             </li>
             <li>
               🎨 Theme support: 29 included themes &mdash; load any external
