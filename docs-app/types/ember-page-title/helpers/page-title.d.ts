@@ -1,7 +1,7 @@
 import { HelperLike } from '@glint/template';
 
 declare const pageTitle: HelperLike<{
-  Args: { Positional: [title?: string]; Named: { replace: boolean } };
+  Args: { Positional: [title?: string]; Named: { replace?: boolean } };
   Return: void;
 }>;
 
