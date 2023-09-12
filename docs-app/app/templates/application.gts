@@ -14,7 +14,13 @@ import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { ShikiService } from 'ember-shiki';
 
-class Application extends Component<{ Args: { model: null } }> {
+interface ApplicationSignature {
+  Args: {
+    model: null;
+  };
+}
+
+class Application extends Component<ApplicationSignature> {
   @service declare shiki: ShikiService;
 
   @tracked theme = 'github-dark';
