@@ -148,6 +148,9 @@ importers:
       ember-resolver:
         specifier: ^11.0.1
         version: 11.0.1(ember-source@5.2.0)
+      ember-route-template:
+        specifier: ^1.0.1
+        version: 1.0.1
       ember-shiki:
         specifier: workspace:*
         version: link:../ember-shiki
@@ -7493,6 +7496,14 @@ packages:
 
   /ember-rfc176-data@0.3.18:
     resolution: {integrity: sha512-JtuLoYGSjay1W3MQAxt3eINWXNYYQliK90tLwtb8aeCuQK8zKGCRbBodVIrkcTqshULMnRuTOS6t1P7oQk3g6Q==}
+
+  /ember-route-template@1.0.1:
+    resolution: {integrity: sha512-zk8eePt+vjigiY7bawTpa5O/HPPXjPAxlPsk37LYSN+uiVrRAFcuq72oTggMfwIZfVZk+gqUAvlaUQBljSMTaw==}
+    dependencies:
+      '@embroider/addon-shim': 1.8.6
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /ember-router-generator@2.0.0:
     resolution: {integrity: sha512-89oVHVJwmLDvGvAUWgS87KpBoRhy3aZ6U0Ql6HOmU4TrPkyaa8pM0W81wj9cIwjYprcQtN9EwzZMHnq46+oUyw==}
