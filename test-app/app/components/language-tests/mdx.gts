@@ -1,0 +1,21 @@
+import { CodeBlock } from 'ember-shiki';
+
+const codeExample = `
+<MyComponent id="123" />
+
+You can also use objects with components, such as the \`thisOne\` component on
+the \`myComponents\` object: <myComponents.thisOne />
+
+<Component
+  open
+  x={1}
+  label={'this is a string, *not* markdown!'}
+  icon={<Icon />}
+/>
+
+{/* From https://mdxjs.com/docs/what-is-mdx/#mdx-syntax */}
+`;
+
+<template>
+  <CodeBlock @code={{codeExample}} @language="mdx" />
+</template>
