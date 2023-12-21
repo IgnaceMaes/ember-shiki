@@ -40,7 +40,7 @@ process FASTQC {
     tuple val(sample_id), path(reads)
  
     output:
-    path "fastqc_${sample_id}_logs"
+    path "fastqc_\${sample_id}_logs"
  
     script:
     """
@@ -61,7 +61,7 @@ process QUANT {
  
     script:
     """
-    salmon quant --threads $task.cpus --libType=U -i $index -1 ${reads[0]} -2 ${reads[1]} -o $pair_id
+    salmon quant --threads $task.cpus --libType=U -i $index -1 \${reads[0]} -2 \${reads[1]} -o $pair_id
     """
 }`;
 

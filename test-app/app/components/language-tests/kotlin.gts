@@ -8,14 +8,14 @@ import android.support.v7.app.AppCompatActivity
 import org.amshove.kluent.\`should equal\` as Type
 
 fun main(@NonNull args: Array<String>) {
-    println("Hello Kotlin! ${/*test*/}")
+    println("Hello Kotlin! \${/*test*/}")
 
     val map = mutableMapOf("A" to "B")
 
     thing.apply("random string here \n\t\r")
     thing.let { test: ->    }
 
-    val string = "${getThing()}"
+    val string = "\${getThing()}"
 }
 
 val items = listOf("apple", "banana", "kiwifruit")

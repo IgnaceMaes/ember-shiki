@@ -10,7 +10,7 @@ const codeExample = `
 		console.log(files);
 
 		for (const file of files) {
-			console.log(\`${file.name}: ${file.size} bytes\`);
+			console.log(\`\${file.name}: \${file.size} bytes\`);
 		}
 	}
 </script>

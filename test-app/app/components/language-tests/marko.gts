@@ -8,7 +8,7 @@ const codeExample = `
       Took too long to fetch the data!
     </if>
     <else>
-      Promise failed with ${err.message}.
+      Promise failed with \${err.message}.
     </else>
   </@catch>
 </await>
