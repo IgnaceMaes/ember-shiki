@@ -254,9 +254,6 @@ importers:
       '@babel/plugin-transform-class-properties':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.10)
-      '@babel/plugin-transform-typescript':
-        specifier: ^7.27.1
-        version: 7.27.1(@babel/core@7.22.10)
       '@babel/preset-typescript':
         specifier: ^7.22.5
         version: 7.22.5(@babel/core@7.22.10)
