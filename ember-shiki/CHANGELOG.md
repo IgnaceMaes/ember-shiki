@@ -1,5 +1,11 @@
 # ember-shiki
 
+## 0.3.1
+
+### Patch Changes
+
+- [#29](https://github.com/IgnaceMaes/ember-shiki/pull/29) [`0eb5755`](https://github.com/IgnaceMaes/ember-shiki/commit/0eb57551250a4ff0cfbd7b812a4eb74b65347ff8) Thanks [@MichalBryxi](https://github.com/MichalBryxi)! - Bump version of ember-functions-as-helper-polyfill.
+
 ## 0.3.0
 
 ### Minor Changes
