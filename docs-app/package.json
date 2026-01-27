@@ -64,6 +64,7 @@
     "ember-page-title": "^8.0.0",
     "ember-qunit": "^7.0.0",
     "ember-resolver": "^11.0.1",
+    "ember-route-template": "^1.0.1",
     "ember-shiki": "workspace:*",
     "ember-source": "~5.2.0",
     "ember-template-imports": "^3.4.2",
