@@ -18,12 +18,6 @@ module.exports = function (environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-    'ember-shiki': {
-      defaultLanguages: ['gjs', 'gts', 'sh', 'css'],
-      defaultThemes: ['material-theme-palenight'],
-      showLineNumbers: false,
-      // cdnUrl: 'https://localhost:4200/',
-    },
   };
 
   if (environment === 'development') {

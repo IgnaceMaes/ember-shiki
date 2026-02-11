@@ -12,6 +12,7 @@ import { task } from 'ember-concurrency';
 import ApplicationInstance from '@ember/application/instance';
 import { tracked } from '@glimmer/tracking';
 import { LineHighlight } from '../components/code-block';
+import { config } from '../index.ts';
 
 export default class ShikiService extends Service {
   @tracked isInitialized = false;
@@ -67,11 +68,7 @@ export default class ShikiService extends Service {
   });
 
   get cdnUrl() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const config: any = (
-      getOwner(this) as ApplicationInstance
-    )?.resolveRegistration('config:environment');
-    const { cdnUrl } = config['ember-shiki'] ?? {};
+    const { cdnUrl } = config;
     if (cdnUrl) {
       return cdnUrl;
     }
@@ -84,11 +81,7 @@ export default class ShikiService extends Service {
       return;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const config: any = (
-      getOwner(this) as ApplicationInstance
-    )?.resolveRegistration('config:environment');
-    const { defaultLanguages, defaultThemes } = config['ember-shiki'] ?? {};
+    const { defaultLanguages, defaultThemes } = config;
 
     const {
       BUNDLED_LANGUAGES,

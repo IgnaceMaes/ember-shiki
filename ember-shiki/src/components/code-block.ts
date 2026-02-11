@@ -6,6 +6,7 @@ import { tracked } from '@glimmer/tracking';
 import ShikiService from '../services/shiki';
 import { Lang, Theme } from 'shiki';
 import { SafeString, htmlSafe } from '@ember/template';
+import { config } from '../index.ts';
 
 import '../styles.css';
 
@@ -83,13 +84,7 @@ export default class CodeBlock extends Component<CodeBlockSignature> {
       return this.args.showLineNumbers;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const config: any = (
-      getOwner(this) as ApplicationInstance
-    )?.resolveRegistration('config:environment');
-    const { showLineNumbers }: { showLineNumbers?: boolean } =
-      config['ember-shiki'] ?? {};
-
+    const { showLineNumbers } = config;
     return showLineNumbers ?? false;
   }
 
@@ -98,13 +93,7 @@ export default class CodeBlock extends Component<CodeBlockSignature> {
       return this.args.showCopyButton;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const config: any = (
-      getOwner(this) as ApplicationInstance
-    )?.resolveRegistration('config:environment');
-    const { showCopyButton }: { showCopyButton?: boolean } =
-      config['ember-shiki'] ?? {};
-
+    const { showCopyButton } = config;
     return showCopyButton ?? true;
   }
 

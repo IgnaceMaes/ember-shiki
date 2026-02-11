@@ -63,16 +63,24 @@ export default class CopyToClipboard extends Component {
   </template>
 }`;
 
-  setupConfigCode = `module.exports = function (environment) {
-  const ENV = {
-    // ...
-    'ember-shiki': {
-      defaultLanguages: ['gjs', 'gts', 'css'],
-      defaultThemes: ['github-dark'],
-    },
-  };
-  // ...
-};`;
+  setupConfigCode = `import Application from '@ember/application';
+import Resolver from 'ember-resolver';
+import loadInitializers from 'ember-load-initializers';
+import config from 'my-app/config/environment';
+import { setConfig } from 'ember-shiki';
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);
+
+setConfig({
+  defaultLanguages: ['gjs', 'gts', 'css'],
+  defaultThemes: ['github-dark'],
+})`;
 
   lineNumbersCode = `<CodeBlock
   @code="// Line numbers!

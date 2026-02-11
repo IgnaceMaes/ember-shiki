@@ -137,22 +137,25 @@
         <InlineCode>nord</InlineCode>
         theme by default if no theme is specified. This docs website uses
         <InlineCode>github-dark</InlineCode>.</p>
-      <p>The global defaults can be adjusted in the
-        <InlineCode>environment.js</InlineCode>
-        file by adding an entry for
+      <p>The global defaults can be adjusted using
+        <InlineCode>setConfig</InlineCode>
+        imported from
         <InlineCode>ember-shiki</InlineCode>.</p>
 
       <CodeBlock
         @code={{this.setupConfigCode}}
         @language="js"
-        @name="app/config/environment.js"
-        @lineHighlights={{array (hash start=4 end=7 type="add")}}
+        @name="app/app.js"
+        @lineHighlights={{array
+          (hash start=5 type="add")
+          (hash start=15 end=18 type="add")
+        }}
       />
       <p>Shiki languages, themes, and WASM are loaded from a CDN by default. If
         you wish to change the CDN, or self-host these resources, you can set a
         custom
         <InlineCode>cdnUrl</InlineCode>
-        in the environment config.</p>
+        in the config.</p>
 
       <hr class="my-16 h-px border-0 bg-gray-700" />
 
