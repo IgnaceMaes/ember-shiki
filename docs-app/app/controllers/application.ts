@@ -20,10 +20,10 @@ export default class Application extends Controller {
 />`;
 
   glintTypes = `import '@glint/environment-ember-loose';
-import type EmberShikiRegistery from 'ember-shiki/template-registry';
+import type EmberShikiRegistry from 'ember-shiki/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberShikiRegistery, /* ... */ {
+  export default interface Registry extends EmberShikiRegistry, /* ... */ {
     // local entries
   }
 }`;

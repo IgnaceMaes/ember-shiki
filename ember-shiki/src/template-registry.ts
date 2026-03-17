@@ -4,7 +4,7 @@ import type CodeTab from './components/code-tab';
 import type CopyButton from './components/copy-button';
 import ShikiRender from './modifiers/shiki-render';
 
-export default interface EmberShikiRegistery {
+export default interface EmberShikiRegistry {
   CodeBlock: typeof CodeBlock;
   CodeGroup: typeof CodeGroup;
   CodeTab: typeof CodeTab;
